@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %} Senderos - Reserva Natural {% endblock %}</title>
+    <link rel="icon" href="#" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script href="{% static 'js/plugin/webfont/webfont.min.js' %}"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Lato:300,400,700,900"] },
+            custom: {
+                "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+                urls: ["{% static 'css/fonts.min.css' %}"]
+            },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/atlantis.min.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'home' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Inicio</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'quienes_somos' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Quienes Somos</font>
+                                </font>
+                            </a>
+                        </li>
+
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'proyectos' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Proyectos</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'servicios' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Servicios</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'publicaciones' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Noticias</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'areas_de_estudio' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Areas de Estudio</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'login' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Iniciar sesión</font>
+                                </font>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'registro' %}">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Registrarse</font>
+                                </font>
+                            </a>
+                        </li>
+                        
+                    </ol>
+                </nav>
+
+                {% block content %}
+
+
+                {% endblock %}
+            </div>
+        </div>
+
+        <!-- Espacios -->
+        <div class="row">
+            <div class="col-md-12">
+                <br><br><br><br>
+            </div>
+        </div>
+
+        <!-- Pié de página -->
+        <div class="row">
+            <div class="col-md-4">
+                <address>
+                    <strong>Senderos - Reserva Natural</strong><br /> 795 Folsom Ave, Suite 600<br /> San Francisco, CA
+                    94107<br />
+                    <abbr title="Teléfono">P:</abbr> (123) 456-7890
+                </address>
+                <br>
+                Seguinos en: <br>
+                <a href="https://www.instagram.com/kchito2028/" target="_blank">Instagram</a><br>
+                <a href="https://www.facebook.com/profile.php?id=100063478005717" target="_blank">Facebook</a>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--   Core JS Files   -->
+    <script src="{% static 'js/core/jquery.3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+
+    <!-- jQuery UI -->
+    <script href="{% static 'js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+    <script href="{% static 'js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js' %}"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script href="{% static  'js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+
+    <!-- Datatables -->
+    <script href=" {% static 'js/plugin/datatables/datatables.min.js' %}"></script>
+
+    <!-- Bootstrap Notify -->
+    <script href="{% static 'js/plugin/bootstrap-notify/bootstrap-notify.min.js' %}"></script>
+
+    <!-- Sweet Alert -->
+    <script href="{% static 'js/plugin/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Atlantis JS -->
+    <script src="{% static 'js/atlantis.min.js' %}"></script>
+
+</body>
+
+</html>

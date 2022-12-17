@@ -25,10 +25,14 @@ class Post(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     publicado = models.BooleanField(default=True)
     fecha_creacion = models.DateField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete= models.CASCADE)
     
     class Meta:
         verbose_name_plural = 'Posteos'
     
     def __str__(self) :
         return str(self.titulo)
+
+
+
     

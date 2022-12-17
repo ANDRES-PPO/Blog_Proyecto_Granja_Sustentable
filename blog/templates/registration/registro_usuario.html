@@ -1,0 +1,30 @@
+{% extends 'plantilla2.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card data" background-color="green">
+                        <h2 class="card-header">Registro de Usuario</h2>
+                        <div class="card-body">
+                            <div class="form-group">
+                                {{registro_form.as_p}}
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-round">Guardar</button>
+                            <a href="{% url 'home' %}" class="btn btn-danger btn-round">Cancelar</a>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

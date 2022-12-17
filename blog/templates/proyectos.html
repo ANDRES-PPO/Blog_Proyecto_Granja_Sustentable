@@ -1,21 +1,242 @@
-{% extends "plantilla.html" %}
-
+{% extends "plantilla2.html" %}
+{% load static %}
 {% block title %} Proyectos {% endblock %}
 
 {% block content %}
 
-<!– Insertar contenido desde aqui –>
+
+      
+<section class="carrusel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/senderos/foto1.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Senderos, Reserva Educativa Experimental y Granja Autosustentable.</h2>
+          <p><h4><i>General San Martín.</i></h4></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/senderos/foto2.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Conocé más sobre nuestros proyectos.</i></h2>
+          <p><h4><i>Visitá nuestras redes sociales.</i></h4></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/senderos/foto3.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><i>¡Formá parte de esta increíble experiencia!</i></h2>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"> <u>PROYECTOS</u></h2>
+  
+  <div class="container">
+    <div class = "row">
+      <div class="col-6 text-justify">
+          <p class="lead"> <strong> DE UNA PERFORACIÓN PARA EXTRAER AGUA PARA GENERAR EL RIEGO DE LA HUERTA 
+            AGROECOLÓGICA SUSTENTABLE Y CAMPO DE ENSAYO DE CULTIVOS DE DIFERENTES PLANIFICACIÓN Y OBJETIVOS. </strong>
+          </p>
+          <i># Aquí va la descripción del proyecto.</i>
+      </div>
+      <div class="col-6">
+        <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto4.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong> PROYECTO DE UN INVERNADERO PARA DIFERENTES PLANTAS NATIVAS DE DIFERENTES RECURSOS.</strong> 
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto5.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"> <strong>PROYECTO DE UN VIVERO FRUTALES NATIVOS COMESTIBLES.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto6.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+        <p class="lead"> <strong>PROYECTO DE VIVERO PLANTAS NATIVAS PARA SU CONSERVACIÓN.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto7.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"> <strong>PROYECTO DE HERBARIO DE TODAS LAS ESPECIES DE PLANTAS NATIVAS.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto8.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong> PROYECTO DE PLANTAS NATIVAS MEDICINALES.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto9.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong>PROYECTO PARA LA CONSERVACIÓN DE LAS ESPECIES DE HONGOS DE LA RESERVA.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto10.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"> <strong>PROYECTO DE RESTAURACIÓN DINÁMICA DE BIODIVERSIDAD DE PASTIZALES.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto11.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong> PROYECTO DE ENSAYO DE PLANTAS DE UVAS EN FORMA DE ARBUSTOS PARA EXTRAER SUS 
+          FRUTOS Y ELABORAR VINO PATERO.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto12.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong></strong> PROYECTO DE SENDERO PARA EL AVISTAMIENTO DE AVES.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto13.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="PROYECTOS my-5">
+  <h2 class = "text-center my-5"></h2>
+<div class="container">
+  <div class = "row">
+    <div class="col-6 text-justify">
+      <p class="lead"><strong>PROYECTO DE LA CONSTRUCCIÓN DE UNA RAMPA SOBRE EL RÍO DE ORO.</strong>
+        </p>
+        <i># Aquí va la descripción del proyecto.</i>
+    </div>
+    <div class="col-6">
+      <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto14.jpg" alt="">
+    </div>
+  </div>
+</div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
 
 
-<p style="background: lightblue; color: black;">
+<!-- <p style="background: lightblue; color: black;">
     <br><br><br><br>===============================================================<br><br><br><br>
 
-    Proyectos
+    PROYECTOS
 
     <br><br><br><br>===============================================================<br><br><br><br>
-</p>
-
-<!– Insertar contenido hasta aqui –>
-
+</p> -->
 
 {% endblock %}
