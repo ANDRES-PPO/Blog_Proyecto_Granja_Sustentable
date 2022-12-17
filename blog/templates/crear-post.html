@@ -1,24 +1,24 @@
-{% extends "plantilla.html" %}
-
+{% extends "plantilla2.html" %}
+{% load static %}
 {% block title %} Crear Post {% endblock %}
 
 {% block content %}
 
 <!– Insertar contenido desde aqui –>
 
+<div>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="card">
             <h5 class="card-header">Posteo</h5>
             <div class="card-body">
                 {{post_form.as_p}}
+                <button type="submit" class="btn btn-primary btn-round">Guardar</button>
+                <a href="{% url 'crear_post' %}" class="btn btn-danger">Cancelar</a>
             </div>
-            <button type="submit">Guardar</button>
-            <a href="{% url 'crear_post' %}">Cancelar</a>
-
         </div>
-
     </form>
+</div>
 <!– Insertar contenido hasta aqui –>
 
 

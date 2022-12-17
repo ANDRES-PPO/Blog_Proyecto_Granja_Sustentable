@@ -26,7 +26,7 @@ urlpatterns = [
     path('servicios/', servicios, name='servicios'),
     path('publicaciones/', publicaciones, name='publicaciones'),
     path('areas-de-estudio/', areas_de_estudio, name='areas_de_estudio'),
-    path('crear-post', crear_post, name='crear_post'),
+    path('crear-post/', crear_post, name='crear_post'),
 
     path('registro/', registroUsuario, name='registro'), #agregado
     path('accounts/', include('django.contrib.auth.urls')), #agregado

@@ -81,19 +81,35 @@
                                 </font>
                             </a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'login' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Iniciar sesión</font>
-                                </font>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'registro' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Registrarse</font>
-                                </font>
-                            </a>
+                        {% if request.user.is_authenticated %}
+                            <li class="breadcrumb-item">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Usuario: {{ user.get_username }} </font>
+                                    </font>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="{% url 'logout' %}">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Cerrar Sesion</font>
+                                    </font>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="breadcrumb-item">
+                                <a href="{% url 'login' %}">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Iniciar sesión</font>
+                                    </font>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="{% url 'registro' %}">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Registrarse</font>
+                                    </font>
+                                </a>
+                        {% endif %}
+                        
                         </li>
                         
                     </ol>
