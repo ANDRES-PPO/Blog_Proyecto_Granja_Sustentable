@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import PostForm, RegistroForm
 
@@ -45,6 +45,20 @@ def crear_post(request):
     else:
         post_form = PostForm()
     return render(request, 'crear-post.html', {'post_form': post_form})
+
+#Vista para Ver un solo posteo
+def ver_post(request, id):
+    posteo = get_object_or_404(Post, pk=id)
+    context = { 'posteo': posteo}
+    return render(request, "post/post.html", context)
+
+def post_detail(request, id):
+    #posteo = get_object_or_404(Post, id=id)
+    #posteo = Post.object.get(id=id)
+    #return render(request, 'post/post.html', {'posteo': posteo})
+    posteo = Post.objects.get(pk=id)
+    context = { 'posteo': posteo}
+    return render(request, "post/post.html", context)
 
 
 #Vista para registrar un usuario

@@ -15,18 +15,19 @@
 <article>
     <div>
         <div>
-            <h2 class="post-titulo"><a href="#">{{posteo.titulo}} </a></h2> <!–  –>
+
+            
+            <h2 class="post-titulo"><a href={% url 'ver_post' posteo.id %}>{{posteo.titulo}} </a></h2> <!–  –>
             <p class="post-autor">Autor: <a href="#">{{ posteo.usuario.username }} </a></p>
             <p>Categoria : <a href="#">{{posteo.categoria}} </a></p>
             <p class="post-hora">Fecha de creacion: {{posteo.fecha_creacion}}</p>
-            <p class="post-autor">{{posteo.resumen}} </p>
+            <p class="post-resumen">{{posteo.resumen}} </p>
         </div>
 
         <img src="{{posteo.imagen.url}}" width="400" height="300">
 
     </div>
 </article>
-
 {% endfor %}
 
 

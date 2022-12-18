@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
@@ -30,6 +31,7 @@ urlpatterns = [
     path('publicaciones/', publicaciones, name='publicaciones'),
     path('areas-de-estudio/', areas_de_estudio, name='areas_de_estudio'),
     path('crear-post/', crear_post, name='crear_post'),
+    path('post/<id>', ver_post, name='ver_post'),
 
     path('registro/', registroUsuario, name='registro'), #agregado
     path('accounts/', include('django.contrib.auth.urls')), #agregado
