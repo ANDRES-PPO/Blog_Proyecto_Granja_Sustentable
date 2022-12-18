@@ -28,7 +28,6 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/atlantis.min.css' %}">
-
 </head>
 
 <body>
@@ -36,96 +35,66 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'home' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Inicio</font>
-                                </font>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'quienes_somos' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Quienes Somos</font>
-                                </font>
-                            </a>
-                        </li>
 
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'proyectos' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Proyectos</font>
-                                </font>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'servicios' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Servicios</font>
-                                </font>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'publicaciones' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Noticias</font>
-                                </font>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{% url 'areas_de_estudio' %}">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Areas de Estudio</font>
-                                </font>
-                            </a>
-                        </li>
-                        {% if request.user.is_authenticated %}
-                            <li class="breadcrumb-item">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Usuario: {{ user.get_username }} </font>
-                                    </font>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="{% url 'logout' %}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Cerrar Sesion</font>
-                                    </font>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="breadcrumb-item">
-                                <a href="{% url 'login' %}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Iniciar sesión</font>
-                                    </font>
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="{% url 'registro' %}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Registrarse</font>
-                                    </font>
-                                </a>
-                            </li>
-                        {% endif %}
+                <nav class="navbar navbar-expand-lg bg-secondary">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">Senderos</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'home' %}">Inicio <span
+                                            class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'quienes_somos' %}">Quienes somos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'publicaciones' %}">Noticias</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'areas_de_estudio' %}">Areas de estudio</a>
+                                </li>
+                                {% if request.user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}">Usuario: {{ user.get_username }}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+                                    </li>
+                                {% endif %}
 
-                        {% if request.user.is_superuser %}
-                            <li class="breadcrumb-item">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Usuario: {{ user.get_username }} </font>
-                                    </font>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="{% url 'crear_post' %}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Crear post</font>
-                                    </font>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ol>
+                                {% if request.user.is_superuser %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Administrador
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="{% url 'crear_post' %}">Crear post</a>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
                 </nav>
 
                 {% block content %}
