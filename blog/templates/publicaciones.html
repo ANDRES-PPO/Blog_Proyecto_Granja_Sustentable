@@ -24,7 +24,7 @@
             <p class="post-resumen">{{posteo.resumen}} </p>
         </div>
 
-        <img src="{{posteo.imagen.url}}" width="400" height="300">
+        <a href={% url 'ver_post' posteo.id %}><img src="{{posteo.imagen.url}}" width="400" height="300"></a>
 
     </div>
 </article>
