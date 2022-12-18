@@ -19,16 +19,17 @@ class Categoria(models.Model):
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=40, blank=False, null=False)
-    resumen = models.CharField(max_length=70, blank=False, null=False)
-    texto = models.TextField(max_length=500, blank=False, null=False)
+    resumen = models.CharField(max_length=300, blank=False, null=False)
+    texto = models.TextField(max_length=1500, blank=False, null=False)
     imagen = models.ImageField(upload_to='post', null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     publicado = models.BooleanField(default=True)
     fecha_creacion = models.DateField(auto_now_add=True)
-    usuario = models.ForeignKey(User, on_delete= models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'posts')
     
     class Meta:
         verbose_name_plural = 'Posteos'
+        ordering = ['fecha_creacion']  # ordena por fecha de creacion
     
     def __str__(self) :
         return str(self.titulo)

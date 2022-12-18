@@ -1,5 +1,5 @@
-{% extends "plantilla.html" %}
-
+{% extends "plantilla2.html" %}
+{% load static %}
 {% block title %} Publicaciones {% endblock %}
 
 {% block content %}
@@ -8,13 +8,31 @@
 
 
 
-<p style="background: orange; color: black;">
-    <br><br><br><br>===============================================================<br><br><br><br>
+<div style="background: pink; color: black;">
 
-    Publicaciones
 
-    <br><br><br><br>===============================================================<br><br><br><br>
-</p>
+{% for posteo in posteos %}
+<article>
+    <div>
+        <div>
+            <h2 class="post-titulo"><a href="#">{{posteo.titulo}} </a></h2> <!–  –>
+            <p class="post-autor">Autor: <a href="#">{{ posteo.usuario.username }} </a></p>
+            <p>Categoria : <a href="#">{{posteo.categoria}} </a></p>
+            <p class="post-hora">Fecha de creacion: {{posteo.fecha_creacion}}</p>
+            <p class="post-autor">{{posteo.resumen}} </p>
+        </div>
+
+        <img src="{{post.imagen.url}}" width="400" height="300">
+
+    </div>
+</article>
+
+{% endfor %}
+
+
+</div>
+
+
 
 <!– Insertar contenido hasta aqui –>
 

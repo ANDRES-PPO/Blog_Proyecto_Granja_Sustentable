@@ -22,8 +22,10 @@ def servicios(request):
 	return render(request, "servicios.html", {})
 
 def publicaciones(request):
-	return render(request, "publicaciones.html", {})
-
+    posteos = Post.objects.all()
+    context = { 'posteos': posteos}
+    return render(request, "publicaciones.html", context)
+    
 def areas_de_estudio(request):
 	return render(request, "areas-de-estudio.html", {})
 
@@ -45,7 +47,7 @@ def crear_post(request):
     return render(request, 'crear-post.html', {'post_form': post_form})
 
 
-#Vista para crear un posteo
+#Vista para registrar un usuario
 
 def registroUsuario(request):
     if request.method == 'POST':

@@ -57,6 +57,7 @@ celerybeat-schedule
 # virtualenv
 venv/
 ENV/
+media/
 # Spyder project settings
 .spyderproject
 # Rope project settings
