@@ -108,10 +108,23 @@
                                         <font style="vertical-align: inherit;">Registrarse</font>
                                     </font>
                                 </a>
+                            </li>
                         {% endif %}
-                        
-                        </li>
-                        
+
+                        {% if request.user.is_superuser %}
+                            <li class="breadcrumb-item">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Usuario: {{ user.get_username }} </font>
+                                    </font>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="{% url 'crear_post' %}">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Crear post</font>
+                                    </font>
+                                </a>
+                            </li>
+                        {% endif %}
                     </ol>
                 </nav>
 
