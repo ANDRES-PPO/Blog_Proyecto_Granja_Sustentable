@@ -34,6 +34,18 @@ class Post(models.Model):
     def __str__(self) :
         return str(self.titulo)
 
+class Comentario(models.Model):
+    id = models.AutoField(primary_key=True)
+    texto = models.TextField(max_length=180, blank=False, null=False)
+    post = models.ForeignKey(Post, on_delete= models.CASCADE)
+    fecha_creacion = models.DateField(auto_now_add=True)
+    usuario = models.ForeignKey(User, on_delete= models.CASCADE)
 
+
+    class Meta:
+        verbose_name_plural = 'Comentarios'
+
+    def __str__(self) :
+        return str(self.texto)
 
     
