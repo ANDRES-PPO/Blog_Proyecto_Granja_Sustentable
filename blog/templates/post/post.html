@@ -1,7 +1,6 @@
 {% extends "plantilla2.html" %}
 {% load static %}
 {% block title %} Posteo {% endblock %}
-
 {% block content %}
 
 <!– Insertar contenido desde aqui –>
@@ -25,6 +24,21 @@
 
         </div>
     </article>
+    <div>
+        Compartir en:
+        <div class="social-share">
+            <a href="http://www.facebook.com/sharer.php?display=popup&u={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"> <img src="{% static 'img/social-media-icons/icons-facebook-128px.png' %}" width="48" height="48"> </a>
+        </div>
+        <div class="social-share">
+            <a href="https://api.whatsapp.com/send?text={{posteo.titulo}}&#32&#32&#32&#124&#32&#32&#32{{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-whatsapp-128px.png' %}" width="48" height="48"> </a>
+        </div>
+        <div class="social-share">
+            <a href="https://twitter.com/intent/tweet?text={{posteo.titulo}}%20%20%20%20&url={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-twitter-128px.png' %}" width="48" height="48"> </a>
+        </div>
+
+    </div>
+    
+
 
     <div style="background: white; color: gray;">
         <p>========================</p>
