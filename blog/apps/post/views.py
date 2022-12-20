@@ -20,17 +20,46 @@ def proyectos(request):
 
 def servicios(request):
 	return render(request, "servicios.html", {})
-
-def publicaciones(request):
-    posteos = Post.objects.all()
-    context = { 'posteos': posteos}
-    return render(request, "publicaciones.html", context)
-    
+   
 def areas_de_estudio(request):
 	return render(request, "areas-de-estudio.html", {})
 
-def crear_post(request):
-	return render(request, "crear-post.html", {})
+#Vista para Mostrar y Filtrar Posteos
+
+class publicaciones(View):
+    template_name = 'publicaciones.html'
+
+    def get(self, request):
+        posteos = Post.objects.all().order_by('-fecha_creacion')
+        categorias = Categoria.objects.all()
+        context = {
+           'posteos': posteos,
+           'categorias': categorias
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        categorias = Categoria.objects.all()
+        cate = request.POST.get('categoria', None)
+        fecha = request.POST.get('fecha', None)
+
+        if cate == "Todas" and fecha:
+            posteos = Post.objects.filter(fecha_creacion=fecha).order_by('-fecha_creacion')
+           
+        elif cate and fecha:
+            posteos = Post.objects.filter(categoria__nombre=cate, fecha_creacion=fecha).order_by('-fecha_creacion')
+        elif cate:
+            if cate == "Todas":
+                posteos = Post.objects.all().order_by('-fecha_creacion')
+            else:
+                posteos = Post.objects.filter(categoria__nombre=cate).order_by('-fecha_creacion')
+        elif fecha:
+            posteos = Post.objects.filter(fecha_creacion=fecha).order_by('-fecha_creacion')
+        context = {
+           'posteos': posteos,
+           'categorias': categorias
+        }
+        return render(request, self.template_name, context)
 
 #Vista para crear un posteo
 
@@ -51,15 +80,6 @@ def ver_post(request, id):
     posteo = get_object_or_404(Post, pk=id)
     context = { 'posteo': posteo}
     return render(request, "post/post.html", context)
-
-def post_detail(request, id):
-    #posteo = get_object_or_404(Post, id=id)
-    #posteo = Post.object.get(id=id)
-    #return render(request, 'post/post.html', {'posteo': posteo})
-    posteo = Post.objects.get(pk=id)
-    context = { 'posteo': posteo}
-    return render(request, "post/post.html", context)
-
 
 #Vista para registrar un usuario
 

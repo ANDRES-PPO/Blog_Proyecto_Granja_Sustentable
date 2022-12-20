@@ -5,44 +5,47 @@
 
 <!– Insertar contenido desde aqui –>
 
+<div class="container">
 
-
-<div>
-
-
-<img src="{{posteo.imagen.url}}" width="500" height=auto>
-<h1>{{posteo.titulo}}</h1>
-<p>FECHA: {{posteo.fecha_creacion}}</p>
-<p>CATEGORIA: {{posteo.categoria}}</p>
-<h4>{{posteo.resumen}}</h4>
-<p>{{posteo.texto|linebreaksbr}}</p>
-    <div>
-        Compartir en:
-        <div class="container" style="width: 240px;">
-            <div class="row">
-              <div class="col-md-4 ml-auto">
-                <a href="http://www.facebook.com/sharer.php?display=popup&u={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"> <img src="{% static 'img/social-media-icons/icons-facebook-128px.png' %}" width="48" height="48"> </a>
-              </div>
-              <div class="col-md-4">
-                <a href="https://api.whatsapp.com/send?text={{posteo.titulo}}&#32&#32&#32&#124&#32&#32&#32{{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-whatsapp-128px.png' %}" width="48" height="48"> </a>
-              </div>
-              <div class="col-md-4">
-                <a href="https://twitter.com/intent/tweet?text={{posteo.titulo}}%20%20%20%20&url={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-twitter-128px.png' %}" width="48" height="48"> </a>
-              </div>
-            </div>
-          </div>
-
-
-
+	<div class="card border-primary mb-3" style="max-width: 50rem;">
+		<div class="card-header">
+			<h5 class="card-title">{{posteo.titulo}}</h5>
+		</div>
+    
+    <div class="card-body">
+			<div style="max-width: 50rem;">
+				<img class='img-fluid w-100' src="{{posteo.imagen.url}}" width="auto" height="300">
+			</div>
+			<h5 class="card-title">{{posteo.titulo}}</h5>
+			<p class="card-text">Autor: {{ posteo.usuario.username }} | {{posteo.fecha_creacion}}</p>
+			<p class="card-text">{{posteo.texto|linebreaksbr}}</p>
     </div>
 
+    <div class="card-footer bg-transparent border-success">
+      <div class="container" style="width: 240px;">
+        <div class="col-auto">
+          <p>Compartir en:</p>
+        </div> 
+        <div class="row">
+          <div>
+            <a href="http://www.facebook.com/sharer.php?display=popup&u={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"> <img src="{% static 'img/social-media-icons/icons-facebook-128px.png' %}" width="48" height="48"> </a>
+          </div>
+          <div>
+            <a href="https://api.whatsapp.com/send?text={{posteo.titulo}}&#32&#32&#32&#124&#32&#32&#32{{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-whatsapp-128px.png' %}" width="48" height="48"> </a>
+          </div>
+          <div>
+            <a href="https://twitter.com/intent/tweet?text={{posteo.titulo}}%20%20%20%20&url={{ request.scheme }}://{{ request.META.HTTP_HOST }}/post{% url 'ver_post' posteo.id %}" target="_blank" rel="nofollow noopener"><img src="{% static 'img/social-media-icons/icons-twitter-128px.png' %}" width="48" height="48"> </a>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'publicaciones' %}" class="btn btn-primary">Volver</a>
+    </div>
+	</div>
+</div>
 
-<br><br>
-<br>
-
-<a href="{% url 'publicaciones' %}">VOLVER</a>
 
 <!– Insertar contenido hasta aqui –>
+
 
 
 {% endblock %}

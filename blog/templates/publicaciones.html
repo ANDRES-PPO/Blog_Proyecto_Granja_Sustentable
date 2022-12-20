@@ -70,39 +70,55 @@
 
 <div >
     <div class="form-group">
+		
+
         <form action="#" method="POST">
-            {% csrf_token %}
-            <label for="solidSelect">Filtrar por categoria</label>
-            <select class="form-control input-solid" name="categoria" id="solidSelect">
-            {% for categoria in Categorias %}
-                <option>{{categoria.nombre}}</option>
-            {% endfor %}
-            </select>
-            <input type="date" name="fecha" placeholder="Fecha">
-            <button type="submit" class="btn btn-danger">Filtrar</button>
+			<div class="form-row align-items-center">
+				{% csrf_token %}
+				<label for="solidSelect">Filtrar por categoria: </label>
+				<div class="col-auto">
+					<select class="form-control" name="categoria" id="solidSelect">
+						<option>Todas</option>
+					{% for categoria in categorias %}
+						<option>{{categoria.nombre}}</option>
+					{% endfor %}
+					</select>
+				</div>
+				<div class="col-auto">
+					<input type="date" name="fecha" placeholder="Fecha">
+				</div>
+				<div class="col-auto">
+					<button type="submit" class="btn btn-primary mb-2">Filtrar</button>
+				</div>
+			</div>
+
+
         </form>
     </div>
 </div>
 
+
 {% for posteo in posteos %}
+<div class="container">
 
-    <div class="card" style="width: 24rem;">
-        <div class="card-body">
-            <h2 class="card-title mb-2 fw-mediumbold"><a href={% url 'ver_post' posteo.id %}>{{posteo.titulo}} </a></h2> <!–  –>
-            <p class="card-text">Autor: <a href="#">{{ posteo.usuario.username }} </a></p>
-            <p class="card-text">Categoria : <a href="#">{{posteo.categoria}} </a></p>
-            <p class="card-text">Fecha de creacion: {{posteo.fecha_creacion}}</p>
-            <p class="card-text">{{posteo.resumen}}</p>
-        </div>
-
-        <a href={% url 'ver_post' posteo.id %}><img class="card-img-top"src="{{posteo.imagen.url}}" width="400" height="300"></a>
-
-    </div>
+	<div class="card border-primary mb-3" style="max-width: 50rem;">
+		<div class="card-header">
+			<h5 class="card-title">{{posteo.titulo}}</h5>
+		</div>
+		<div class="card-body">
+			<div style="max-width: 50rem;">
+				<img class='img-fluid w-100' src="{{posteo.imagen.url}}" width="auto" height="300">
+			</div>
+			<h5 class="card-title">{{posteo.titulo}}</h5>
+			<p class="card-text">Autor: {{ posteo.usuario.username }} | {{posteo.fecha_creacion}}</p>
+			<p class="card-text">{{posteo.resumen}}</p>
+			<a href={% url 'ver_post' posteo.id %} class="btn btn-primary">Ver Publicación</a>
+		</div>
+	</div>
+</div>
 
 {% endfor %}
 
-
-</div>
 
 
 

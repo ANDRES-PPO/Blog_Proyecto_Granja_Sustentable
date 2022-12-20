@@ -28,10 +28,10 @@ urlpatterns = [
     path('quienes-somos/', quienes_somos, name='quienes_somos'),
     path('proyectos/', proyectos, name='proyectos'),
     path('servicios/', servicios, name='servicios'),
-    path('publicaciones/', publicaciones, name='publicaciones'),
     path('areas-de-estudio/', areas_de_estudio, name='areas_de_estudio'),
     path('crear-post/', crear_post, name='crear_post'),
     path('post/<id>', ver_post, name='ver_post'),
+    path('publicaciones/',(publicaciones.as_view()), name='publicaciones'),
 
     path('registro/', registroUsuario, name='registro'), #agregado
     path('accounts/', include('django.contrib.auth.urls')), #agregado
