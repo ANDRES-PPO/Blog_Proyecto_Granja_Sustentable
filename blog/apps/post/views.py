@@ -5,6 +5,7 @@ from .forms import PostForm, RegistroForm
 from django.contrib.auth.models import User
 from django.views.generic import View, CreateView
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 from django.contrib.admin.views.decorators import staff_member_required  # Import para el create requerir que el usuario sea parte del staff (administrador)
 
@@ -76,10 +77,17 @@ def crear_post(request):
     return render(request, 'crear-post.html', {'post_form': post_form})
 
 #Vista para Ver un solo posteo
+
 def ver_post(request, id):
-    posteo = get_object_or_404(Post, pk=id)
-    context = { 'posteo': posteo}
-    return render(request, "post/post.html", context)
+    if request.method=='GET':
+        posteo = Post.objects.get(id=id)
+        # comentarios = Comentario.objects.filter(posteo=id)
+        context = { 'posteo': posteo}
+        # context = {
+        #     'post': posteo,
+        #     'comentarios':comentarios
+        # }
+    return render(request, 'post/post.html', context)
 
 #Vista para registrar un usuario
 

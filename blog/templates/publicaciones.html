@@ -112,7 +112,7 @@
 			<h5 class="card-title">{{posteo.titulo}}</h5>
 			<p class="card-text">Autor: {{ posteo.usuario.username }} | {{posteo.fecha_creacion}}</p>
 			<p class="card-text">{{posteo.resumen}}</p>
-			<a href={% url 'ver_post' posteo.id %} class="btn btn-primary">Ver Publicación</a>
+			<a href="{% url 'post' posteo.id %}" class="btn btn-primary">Ver Publicación</a>			
 		</div>
 	</div>
 </div>

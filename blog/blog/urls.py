@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from apps.post.views import *
 from django.views.generic.base import TemplateView # agregado
 from django.conf import settings
@@ -30,7 +30,7 @@ urlpatterns = [
     path('servicios/', servicios, name='servicios'),
     path('areas-de-estudio/', areas_de_estudio, name='areas_de_estudio'),
     path('crear-post/', crear_post, name='crear_post'),
-    path('post/<id>', ver_post, name='ver_post'),
+    re_path('post/(?P<id>\d+)/$', ver_post, name='post'),
     path('publicaciones/',(publicaciones.as_view()), name='publicaciones'),
 
     path('registro/', registroUsuario, name='registro'), #agregado
