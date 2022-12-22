@@ -4,16 +4,69 @@
 
 {% block content %}
 
-<!– Insertar contenido desde aqui –>
+<section class="carrusel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'img/senderos/foto15.jpg' %}" class="d-block w-100" alt="...">
+          {% comment %} <div class="carousel-caption d-none d-md-block">
+            <h2>Senderos, Reserva Educativa Experimental y Granja Autosustentable.</h2>
+            <p><h4><i>General San Martín.</i></h4></p>
+          </div> {% endcomment %}
+        </div>
+        
+        </div>
+      </div>
+      {% comment %} <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> {% endcomment %}
+  </section>
+  
+  <section class="PROYECTOS my-2">
+    <h1 class = "text-center my-5"> <u>SERVICIOS</u></h1>
+    
+    <div class="container">
+      <div class = "row">
+        <div class="col-12 text-center">
+            {% comment %} <p class="lead"> <strong> DE UNA PERFORACIÓN PARA EXTRAER AGUA PARA GENERAR EL RIEGO DE LA HUERTA 
+              AGROECOLÓGICA SUSTENTABLE Y CAMPO DE ENSAYO DE CULTIVOS DE DIFERENTES PLANIFICACIÓN Y OBJETIVOS. </strong>
+            </p> {% endcomment %}
+            <p><h3>Senderos, Reserva Educativa Experimental y Granja Autosustentable:
+                ofrece el avistaje de flora y fauna; las oportunidades de conectar con la naturaleza 
+                en esta reserva comienzan apenas se atraviesa el portal de ingreso. 
+                </h3></p>
+                <p><h3>
+                    Nuestra reserva se convierte en un escenario perfecto para los amantes de la fotografía.
+                    </h3></p>
+                    <p><h3>
+                        
+                        Ofrecemos charlas sobre nuestra flora y fauna y un increible recorrido por nuestros senderos.</h3></p>
+        </div>
+        <div class="col-6">
+          <img class = "img-fluid" src="H:\VS CODE\Blog_Proyecto_Granja_Sustentable-main\blog\static\img\foto4.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-<p style="background: lightpink; color: black;">
+{% comment %} <p style="background: lightpink; color: black;">
     <br><br><br><br>===============================================================<br><br><br><br>
 
     Servicios
 
     <br><br><br><br>===============================================================<br><br><br><br>
-</p>
+</p> {% endcomment %}
 
 <!– Insertar contenido hasta aqui –>
     
