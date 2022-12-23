@@ -37,4 +37,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), #agregado
     path('', TemplateView.as_view(template_name='home.html'), name='home'), #agregado
 
+    path('comentar/', comentar_Post, name='comentar'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

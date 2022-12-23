@@ -1,6 +1,6 @@
 {% extends "plantilla2.html" %}
 {% load static %}
-{% block title %} posteo.titulo {% endblock %}
+{% block title %} {{posteo.titulo}} {% endblock %}
 {% block content %}
 
 <!– Insertar contenido desde aqui –>
@@ -22,6 +22,9 @@
     </div>
 
     <div class="card-footer bg-transparent border-success">
+      
+        <!– Seccion Redes Sociales –>
+            
       <div class="container" style="width: 240px;">
         <div class="col-auto">
           <p>Compartir en:</p>
@@ -39,6 +42,8 @@
         </div>
       </div>
 
+      <!– Boton Ver Publicacion –>
+
       <div class="row">
 				<div class="col-sm-6">
 					<div>			
@@ -52,12 +57,60 @@
 				</div>
 			</div>
 
+      <!– Seccion Comentar –>
+      <div class="card-body">
+        <div class="card-header">
+          <h5 class="card-title">Comentar:</h5>
+        </div>
+      </div>
 
+      <div class="container">
+        <form method="POST" action="{% url 'comentar' %}">
+          {% csrf_token %}
+          <textarea name="comentario" maxlength="1500"> </textarea>
+          <input type="text" name="id_post" value="{{posteo.id}}" hidden="" required="required"> 
+          <input type="submit" value="Enviar">
+        </form>
+        <br><br><br>
+      </div>
 
-
-
-
+      <!-- Seccion Comentarios -->
       
+      <div>
+        <div class="card-body">
+          <div class="card-header">
+            <h5 class="card-title">Comentarios:</h5>
+          </div>
+        </div>
+
+        <div class="card">
+          {% for com in comentarios %}
+          
+          <div class="card-header" style="padding: 2% 0% 0% 2%;">
+
+            <div class="row" style="justify-content: left;">
+              <div class="col-sm-1">
+                <div>			
+                  <img src="{% static 'img/user/no-image-128px.png' %}" width="48" height="48">
+                 </div>
+              </div>
+              <div class="col-sm-6">
+                <div style="text-align: left;">
+                  <h5 class="card-title" >{{com.usuario}}</h5>
+                  <p>{{com.fecha_creacion}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-header">
+            <div class="card-body">
+              <p class="card-text">{{com.texto}}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
     </div>
 	</div>
 </div>

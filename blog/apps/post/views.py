@@ -9,6 +9,8 @@ from django.urls import reverse_lazy
 
 from django.contrib.admin.views.decorators import staff_member_required  # Import para el create requerir que el usuario sea parte del staff (administrador)
 
+from django.contrib.auth.decorators import login_required # Import login para comentar
+
 # Create your views here.
 def home(request):
 	return render(request, "home.html", {})
@@ -81,10 +83,30 @@ def crear_post(request):
 def ver_post(request, id):
     if request.method=='GET':
         posteo = Post.objects.get(id=id)
+        comentarios = Comentario.objects.filter(post=id)
+
         posteo.visitas += 1                                         #Incrementa el conteo de visitas
         Post.objects.filter(id=id).update(visitas=posteo.visitas)   #Actualiza la bd las visitas
-        context = { 'posteo': posteo}
+        context = {
+             'posteo': posteo,
+             'comentarios':comentarios
+         }
+        #{ 'posteo': posteo}
     return render(request, 'post/post.html', context)
+
+# def leerPost(request, id):
+#     if request.method=='GET':
+#         post = Post.objects.get(id=id)
+#         comentarios = Comentario.objects.filter(posteo=id)
+#         context = {
+#             'post': post,
+#             'comentarios':comentarios
+#         }
+#     return render(request, 'post/posteo.html', context)
+
+
+
+
 
 #Vista para registrar un usuario
 
@@ -102,4 +124,22 @@ def registroUsuario(request):
     }
     return render(request, 'registration/registro_usuario.html', context)
 
+#Vista para Comentar un Post
 
+@login_required
+def comentar_Post(request):
+
+    print('id_post :  ', request.POST.get('id_post'))
+
+    com = request.POST.get('comentario',None)
+    print('aqui con:',com)
+    usu = request.user
+    print(usu)
+    
+    noti = request.POST.get('id_post', None)
+    print('aqui noti:', noti)
+    post = Post.objects.get(id = noti) 
+    print(post)
+    Comentario.objects.create(usuario = usu, post = post, texto = com)
+
+    return redirect(reverse_lazy('post', kwargs={'id': noti}))
