@@ -81,12 +81,9 @@ def crear_post(request):
 def ver_post(request, id):
     if request.method=='GET':
         posteo = Post.objects.get(id=id)
-        # comentarios = Comentario.objects.filter(posteo=id)
+        posteo.visitas += 1                                         #Incrementa el conteo de visitas
+        Post.objects.filter(id=id).update(visitas=posteo.visitas)   #Actualiza la bd las visitas
         context = { 'posteo': posteo}
-        # context = {
-        #     'post': posteo,
-        #     'comentarios':comentarios
-        # }
     return render(request, 'post/post.html', context)
 
 #Vista para registrar un usuario

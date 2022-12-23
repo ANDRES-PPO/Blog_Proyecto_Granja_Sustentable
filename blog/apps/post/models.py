@@ -26,6 +26,7 @@ class Post(models.Model):
     publicado = models.BooleanField(default=True)
     fecha_creacion = models.DateField(auto_now_add=True)
     usuario = models.ForeignKey(User, on_delete= models.CASCADE, related_name= 'posts')
+    visitas = models.IntegerField(default=True)
     
     class Meta:
         verbose_name_plural = 'Posteos'
